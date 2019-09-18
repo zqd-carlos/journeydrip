@@ -1,0 +1,79 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html xmlns=http://www.w3.org/1999/xhtml xmlns:bd=http://www.baidu.com/2010/xbdml>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>点滴之途</title>
+<embed src="background/wint.mp3" hidden="ture" autostart="true" loop="true" width="0" height="0" />
+<style type="text/css">
+
+body{
+    margin:0;//body外边距设为0；
+}
+video{
+    position: fixed;//视频定位方式设为固定
+	top:100;
+    right:100;
+    bottom: 0;//视频位置
+    min-width: 100%;
+    min-height: 100%; //不会因视频尺寸造成页面需要滚动
+    width: auto;
+    height: auto; //尺寸保持原视频大小
+    z-index: -9999; //z轴定位，小于0即可
+    -webkit-filter: grayscale(20%);//添加灰度蒙版，如果设定为100%则视频显示为黑白
+}
+
+.buttonregister{
+	height:30px;
+	width:60px;
+}
+.div1{
+	width:400px;
+	height:280px;
+	text-align: center;
+	margin-left:1000px;
+	margin-right:40px;
+	margin-top:150px;
+	margin-bottom:150px;
+	text-align:center;
+	padding-top:40px;
+	padding-bottom:120px;
+	z-index:999;
+	background-image:url(images/toumingdu57.png)
+}
+
+</style>
+
+</head>
+	<div class="div1">   
+   	<div> <h1 text-alien:center;>点滴之途</h1>
+    <img src="images/fenge2.png" width="300"/>	</div>
+	<br />	<br />	<br />
+    
+    <form action="/journeydrip/login" name="login" method="post">
+    用户名：&nbsp;&nbsp;<input type="text" name="username" size="19">&nbsp;&nbsp;&nbsp;&nbsp;<br></br>
+    密&nbsp;码：&nbsp;&nbsp;&nbsp;<input type="password" name="password" size="19" >&nbsp;&nbsp;<br />
+    <br />
+   
+    <br /><br />
+	<div>
+	<a href="error.html">
+    <input type="button" value="注册" id="register" class="buttonregister"  onclick="location.href='error.html'"/>
+    </a> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+	<input type="submit" value="登录" id="login" class="buttonregister" /><br />
+    </div>
+    </form>
+	</div>
+<body>
+	<video src="background/winter.mp4" autoplay muted loop style="width:100%; z-index:-999;">
+    </video>
+    <div align="center">
+    	<p>
+			&copy;Copyright &copy; 2019.www.journeyprid.cn.
+			&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+			[备案信息:苏ICP备19022684号]
+		</p>
+    
+    </div>
+
+</body>
+</html>

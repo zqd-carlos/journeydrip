@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="cn.journeydrip.dao.GameMapper">
+
+	<!--这里是用来写GameMapper的sql语句的配置文件-->
+
+	<!--分页信息
+	首先我需要从前台传入一个页码数字，然后
+	select * from visited LIMIT 前台传入的页码,每页显示的个数16
+	例如	：  select * from visited LIMIT 8,4
+	然后对这个数字进行查询，将结果封装成一个list集合，返回到前台
+	接着前台调用里面的游戏的名字，封面的url地址，详细地址
+	-->
+
+	<!--查询列表的名，封面地址和细节的url地址-->
+	<!-- List<Game> selectAlldongman(page);-->
+	<select id="selectAllgame" parameterType="int" resultType="cn.journeydrip.entity.Game">
+		select
+			gamename,
+		    imgurl,
+		    detailurl
+		from
+			game
+		LIMIT #{page},16
+
+	</select>
+	
+</mapper>
+
+
+
+
+
+
+
