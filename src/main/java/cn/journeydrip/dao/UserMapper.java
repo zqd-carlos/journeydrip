@@ -1,6 +1,8 @@
 package cn.journeydrip.dao;
 
 import java.util.List;
+
+import cn.journeydrip.entity.Permission;
 import org.apache.ibatis.annotations.Param;
 import cn.journeydrip.entity.User;
 import cn.journeydrip.entity.visted;
@@ -30,7 +32,23 @@ public interface UserMapper {
 	 * 用户的查询所有的访问者方法
 	 * @return
 	 */
-	List<visted> selectAllvisited();
+	 List<visted> selectAllvisited();
+
+
+
+	/**
+	 * 根据角色id获取该账号的权限
+	 * @param roleId
+	 * @return List
+	 */
+	List<Permission> getPermissionsByRoleId(int roleId);
+
+	/**
+	 * 根据userId获取角色id
+	 * @param id
+	 * @return LIST
+	 */
+	List<Integer> getUserRoleByUserId(int id);
 
 
 

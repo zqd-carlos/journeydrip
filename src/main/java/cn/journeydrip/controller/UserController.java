@@ -213,4 +213,11 @@ public class UserController {
 	//由于WEB-INF目录下的受保护，所以要使用转发访问
 	}
 
+
+	@RequestMapping("/nopermission")
+	public String noPermission(){
+
+		return "error.html";
+	}
+
 }

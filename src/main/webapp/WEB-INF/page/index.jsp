@@ -42,7 +42,7 @@
 					<ul>
 							<li><span class="top_area">&nbsp;</span></li>
 							<li><a href="columns.html" class="settings-txt">单机游戏</a></li>
-							<li><a href="404.html" class="settings-txt">网络游戏</a></li>
+							<li><a href="error.html" class="settings-txt">网络游戏</a></li>
 							<li><a href="index2.html" class="settings-txt">手机游戏</a></li>
 							<li><a href="#" class="settings-txt">更多</a></li>
 							<li><span class="bottom_area">&nbsp;</span></li>
@@ -73,7 +73,7 @@
 							<li><a href="index2.html" class="settings-txt">账号信息</a></li>
 							<li><a href="portfolio.html" class="settings-txt">我的博客</a></li>
                             <li><a href="portfolio.html" class="settings-txt">我的文件夹</a></li>
-                            <li><a href="/logout" class="settings-txt">登出</a></li>
+                            <li><a href="journeydrip/logout" class="settings-txt">登出</a></li>
 							<li><span class="bottom_area">&nbsp;</span></li></ul>
                             </li>
 				</ul>

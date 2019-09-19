@@ -49,6 +49,20 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 	limit 8
 	</select>
 
+	<!-- 根据userId获取角色id-->
+	<!--List<Integer> getUserRoleByUserId(int id);-->
+	<select id="getUserRoleByUserId" resultType="int">
+		SELECT roleid
+		FROM user_role
+		where userid = #{_parameter}
+	</select>
+
+	<!-- 根据角色id获取该账号的权限-->
+	<!-- List<Permission> getPermissionsByRoleId(int roleId); -->
+	<select id="getPermissionsByRoleId" resultType="cn.journeydrip.entity.Permission">
+		SELECT a.id,a.url,a.roleid as roleId,a.description FROM permission a
+		WHERE roleid = #{_parameter}
+	</select>
 
 </mapper>
 

@@ -2,10 +2,12 @@ package cn.journeydrip.service.imp;
 
 import java.security.GeneralSecurityException;
 import java.text.SimpleDateFormat;
+import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 import javax.annotation.Resource;
 
+import cn.journeydrip.entity.Permission;
 import cn.journeydrip.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -106,5 +108,26 @@ public class UserServiceImp implements UserService {
 		User userByUserName = userMapper.selectByUsername(username);
 		return userByUserName;
 	}
+
+
+
+	public List<Permission> getPermissionsByUser(User user) {
+		//获取到用户角色userRole
+		List<Integer> roleId = userMapper.getUserRoleByUserId(user.getId());
+		List<Permission> perArrary = new ArrayList<>();
+
+		if (roleId!=null&&roleId.size()!=0) {
+			//根据roleid获取peimission
+			for (Integer i : roleId) {
+				perArrary.addAll(userMapper.getPermissionsByRoleId(i));
+			}
+		}
+
+		System.out.println(perArrary);
+		return perArrary;
+	}
+
+
+
 
 }

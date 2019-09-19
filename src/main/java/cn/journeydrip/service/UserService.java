@@ -2,6 +2,7 @@ package cn.journeydrip.service;
 
 import java.util.List;
 
+import cn.journeydrip.entity.Permission;
 import cn.journeydrip.entity.User;
 import cn.journeydrip.entity.visted;
 
@@ -47,5 +48,15 @@ public interface UserService {
 	 * @return UserPojo
 	 */
 	User getUserByUserName(String username);
+
+
+
+	/**
+	 * 根据账号获取该账号的权限
+	 *
+	 * @param user
+	 * @return List
+	 */
+	List<Permission> getPermissionsByUser(User user);
 
 }
