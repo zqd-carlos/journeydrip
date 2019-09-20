@@ -36,7 +36,7 @@
 							<li><a href="portfolio.html" class="settings-txt">国漫</a></li>
                             <li><a href="portfolio.html" class="settings-txt">欧美漫</a></li>
                             <li><a href="portfolio.html" class="settings-txt">同人漫</a></li>
-                            <li><a href="#" class="settings-txt">更多</a></li>
+                            <li><a href="dongmanlist.html" class="settings-txt">更多</a></li>
 							<li><span class="bottom_area">&nbsp;</span></li></ul></li>
 					<li><a href="gamelist.html" class="settings-txt">游戏</a>
 					<ul>
@@ -44,11 +44,11 @@
 							<li><a href="columns.html" class="settings-txt">单机游戏</a></li>
 							<li><a href="error.html" class="settings-txt">网络游戏</a></li>
 							<li><a href="index2.html" class="settings-txt">手机游戏</a></li>
-							<li><a href="#" class="settings-txt">更多</a></li>
+							<li><a href="game.html" class="settings-txt">更多</a></li>
 							<li><span class="bottom_area">&nbsp;</span></li>
 						</ul>	
 					</li>
-					<li><a href="portfolio.html" class="settings-txt">古风</a>
+					<li><a href="novellist.html" class="settings-txt">小说</a>
                     
                     	<ul>
 							<li><span class="top_area">&nbsp;</span></li>
@@ -208,11 +208,11 @@
 					<h3 class="general-font">站内导航</h3>
 					<ul>
 
-						<li><a href="#">经典动漫</a></li>
-						<li><a href="#">游戏资讯</a></li>
+						<li><a href="dongmanlist.html">经典动漫</a></li>
+						<li><a href="gamelist.html">游戏资讯</a></li>
 						<li><a href="#">沁人音乐</a></li>
 						<li><a href="#">古风尘寰</a></li>
-						<li><a href="#">精良设计</a></li>
+						<li><a href="https://github.com/zqd-carlos/journeydrip">精良设计</a></li>
 					</ul>
 				</div><!-- 底下盒子2 -->
 
