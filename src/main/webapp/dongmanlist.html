@@ -13,6 +13,14 @@
 	<script type="text/javascript" src="js/jquery.js"></script>
 	<script type="text/javascript" src="js/jquery.page2.0.js"></script>
 
+	<script type="text/javascript" src="js/jquery.leanModal.min.js"></script>
+
+	<script type="text/javascript">
+        $(function() {
+            $('a[rel*=leanModal]').leanModal({ top : 200, closeButton: ".modal_close" });
+        });
+	</script>
+
 </head>
 
 <body class="portfolio">
@@ -112,13 +120,14 @@
 		</div>
 		
 		<!--	动漫的列表	-->
+
 	<div class="space30"></div>
 		<span class="dotted-line">&nbsp;</span>
 		 <div class="space50"></div>
 			 <div class="space"></div>
 				  <div class="portfolio-items">
 							<ul id="destination">
-								
+
 							<!--循环16次-->
 					 		<div id="showdiv">
 
@@ -135,7 +144,7 @@
 	<script type="text/javascript">
 		$(function(){
 			$("#page").page({
-              totalPages: 15,//分页总数
+              totalPages: 7,//分页总数
               initPage: 1,//初始页数
               liNums: 7,//分页的数字按钮数(建议取奇数)
               activeClass: 'activP', //active 类样式定义
@@ -158,7 +167,7 @@
                                   })*/
                                 for (var i=0;i<data.length;i++){
                                     //拼接表格的行和列
-                                    str ='<li class="web"><a href="#" class="inline-border2"><img src="images/dongman/'+data[i].imgurl+'" alt=""/>'+data[i].dmname+'</a></li>';
+                                    str ='<div><li class="web"><a rel="leanModal"  href="#{}" class="inline-border2"><img src="images/dongman/'+data[i].imgurl+'" alt=""/>'+data[i].dmname+'</a></li></div>';
                                     //追加到table中
 
                                     $("#showdiv").append(str);
@@ -190,7 +199,7 @@
                           })*/
                         for (var i=0;i<data.length;i++){
                             //拼接表格的行和列
-                            str ='<li class="web"><a href="#" class="inline-border2"><img src="images/dongman/'+data[i].imgurl+'" alt=""/>'+data[i].dmname+'</a></li>';
+                            str ='<li class="web"><a rel="leanModal" href="#signup" class="inline-border2"><img src="images/dongman/'+data[i].imgurl+'" alt=""/>'+data[i].dmname+'</a></li>';
                             //追加到table中
                             $("#showdiv").append(str);
                         }
@@ -264,6 +273,42 @@
 		</div>
 	</div>
 
+
+	<p id="examples">
+		<strong>例子:</strong>
+		<a rel="leanModal" href="#signup">带关闭</a>
+	</p>
+
+	<div id="signup">
+		<div id="signup-ct">
+			<div id="signup-header">
+				<h2>创建一个新账号</h2>
+
+				<a class="modal_close" href="#"></a>
+			</div>
+
+			<form action="">
+
+				<div class="txt-fld">
+					<label for="">用户名</label>
+					<input id="" class="good_input" name="" type="text" />
+
+				</div>
+				<div class="txt-fld">
+					<label for="">Email</label>
+					<input id="" name="" type="text" />
+				</div>
+				<div class="txt-fld">
+					<label for="">密码</label>
+					<input id="#" name="" type="text" />
+
+				</div>
+				<div class="btn-fld">
+					<button type="submit">注册 &raquo;</button>
+				</div>
+			</form>
+		</div>
+	</div>
 
 </body>
 </html>

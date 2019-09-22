@@ -7,11 +7,21 @@
 	<link rel="stylesheet" href="css/reset.css" />
 	<link rel="stylesheet" href="css/style.css" />
 	<link rel="stylesheet" href="css/jquery.page.css">
+	<link rel="stylesheet" type="text/css" href="css/section+style.css" />
 
 	<script type="text/javascript" src="js/jquery.isotope.min.js"></script>
 	<script type="text/javascript" src="js/functions.js"></script>
 	<script type="text/javascript" src="js/jquery.js"></script>
 	<script type="text/javascript" src="js/jquery.page2.0.js"></script>
+
+	<script type="text/javascript" src="js/jquery.leanModal.min.js"></script>
+		
+	<script type="text/javascript">
+			$(function() {
+    			$('a[rel*=leanModal]').leanModal({ top : 100, closeButton: ".modal_close" });		
+			});
+		</script>
+		
 
 </head>
 
@@ -37,7 +47,7 @@
 					<li><a href="gamelist.html" class="settings-txt">游戏</a>
 					<ul>
 							<li><span class="top_area">&nbsp;</span></li>
-							<li><a href="gamelist.html" class="settings-txt">单机游戏</a></li>
+							<li><a href="columns.html" class="settings-txt">单机游戏</a></li>
 							<li><a href="404.html" class="settings-txt">网络游戏</a></li>
 							<li><a href="index2.html" class="settings-txt">手机游戏</a></li>
 							<li><a href="gamelist.html" class="settings-txt">更多</a></li>
@@ -49,7 +59,7 @@
                     	<ul>
 							<li><span class="top_area">&nbsp;</span></li>
 							<li><a href="novellist.html" class="settings-txt">小说</a></li>
-							<li><a href="404.html" class="settings-txt">江湖逸闻</a></li>
+							<li><a href="error.html" class="settings-txt">江湖逸闻</a></li>
 							<li><a href="index2.html" class="settings-txt">汉服设计</a></li>
 							<li><a href="novellist.html" class="settings-txt">更多</a></li>
 							<li><span class="bottom_area">&nbsp;</span></li>
@@ -85,21 +95,21 @@
 	<div id="all_page_header">
 		<div class="bg_wood_page circle-inline-border"></div>
 		<div class="elastic inline-border settings-clr no-second" id="page_header">
-			<h1 class="over5">游戏</h1>
+			<h1 class="over5">动漫</h1>
 			<div class="intro-description over5">
-				<p>这里是游戏列表界面,</p>
-				<p>你可以在这里下载你所喜欢的游戏！！！</p>
+				<p>这里是动漫列表界面,</p>
+				<p>你可以在这里查阅你所喜欢的动漫！！！</p>
 			</div>
 		</div>
 	</div>
 	<!-- 这里是中部信息的结束	-->
 	
 	
-	<!--游戏列表的主体部分，用来显示动漫的列表，比如动漫的动漫名，动漫的url地址，然后动漫详细信息的超链接页面。 -->
+	<!--动漫列表的主体部分，用来显示动漫的列表，比如动漫的动漫名，动漫的url地址，然后动漫详细信息的超链接页面。 -->
 	<div class="content elastic">
 		<div id="portfolio-categories">
 			
-			<!--游戏的三级标题可以写在这里，也可以在这里做一个超链接	-->
+			<!--	动漫的三级标题可以写在这里，也可以在这里做一个超链接	-->
 			<ul id="source">
 				<li data-id="*"><a href="#" class="portfolio-sphere circle-inline-border settings-clr"><span data-icon="portfolio-all">&nbsp;</span><span class="title-portfolio">ALL</span></a></li>
 				<li data-id="web"><a href="#" class="portfolio-sphere circle-inline-border settings-clr"><span data-icon="portfolio-web">&nbsp;</span><span class="title-portfolio">WEB</span></a></li>
@@ -111,14 +121,14 @@
 			</ul><div class="clear"></div>
 		</div>
 		
-		<!--	游戏的列表	-->
+		<!--	动漫的列表	-->
 	<div class="space30"></div>
 		<span class="dotted-line">&nbsp;</span>
 		 <div class="space50"></div>
 			 <div class="space"></div>
 				  <div class="portfolio-items">
 							<ul id="destination">
-								
+
 							<!--循环16次-->
 					 		<div id="showdiv">
 
@@ -135,7 +145,7 @@
 	<script type="text/javascript">
 		$(function(){
 			$("#page").page({
-              totalPages: 7,//分页总数
+              totalPages: 15,//分页总数
               initPage: 1,//初始页数
               liNums: 7,//分页的数字按钮数(建议取奇数)
               activeClass: 'activP', //active 类样式定义
@@ -147,7 +157,7 @@
                 //ajax的方法函数    
                      	$.ajax({
 							type:"POST",
- 							url:"/journeydrip/showgamelist",
+ 							url:"/journeydrip/showdongmanlist",
  							data:{"page":page},
 							dataType:"json",
  							success:function suc(data){
@@ -158,7 +168,7 @@
                                   })*/
                                 for (var i=0;i<data.length;i++){
                                     //拼接表格的行和列
-                                    str ='<li class="web"><a href="#" class="inline-border2"><img src="images/portfolio/'+data[i].imgurl+'" alt=""/>'+data[i].gamename+'</a></li>';
+                                    str ='<li class="web"><a rel="leanModal" name="signup" href="#signup" class="inline-border2"><img src="images/dongman/'+data[i].imgurl+'" alt=""/>'+data[i].dmname+'</a></li>';
                                     //追加到table中
 
                                     $("#showdiv").append(str);
@@ -169,7 +179,6 @@
  								}
 						});
     					//传递结束
-    							
               }
           });
       
@@ -180,7 +189,7 @@
             $(document).ready(function(){
                 $.ajax({
                     type:"POST",
-                    url:"/journeydrip/showgamelist",
+                    url:"/journeydrip/showdongmanlist",
                     data:{"page":1},
                     dataType:"json",
                     success:function suc(data){
@@ -191,7 +200,7 @@
                           })*/
                         for (var i=0;i<data.length;i++){
                             //拼接表格的行和列
-                            str ='<li class="web"><a href="#" class="inline-border2"><img src="images/portfolio/'+data[i].imgurl+'" alt=""/>'+data[i].gamename+'</a></li>';
+                            str ='<li class="web"><a rel="leanModal" name="signup" href="#signup" class="inline-border2"><img src="images/dongman/'+data[i].imgurl+'" alt=""/>'+data[i].dmname+'</a></li>';
                             //追加到table中
                             $("#showdiv").append(str);
                         }
@@ -204,7 +213,7 @@
 		</script>
 	
 	</div> 
-	<!-- 这个页面的主旨部分，用来显示动漫的游戏名，游戏封面地址，动漫的超链详细地址 -->
+	<!-- 这个页面的主旨部分，用来显示动漫的动漫名，动漫封面地址，动漫的超链详细地址 -->
 
 	<!-- 页面的底层 -->
 	<div id="footer" class="circle-inline-border">
@@ -265,6 +274,38 @@
 		</div>
 	</div>
 
+
+
+<div id="signup">
+		<div id="signup-ct">
+				<div id="signup-header" >
+					<h2>创建一个新账号</h2>
+					<a class="modal_close" href="#"></a>
+				</div>
+				
+				<form action="">
+				  <div class="txt-fld">
+				    <label for="">用户名</label>
+				    <input id="" class="good_input" name="" type="text" />
+				  </div>
+				  
+				  <div class="txt-fld">
+				    <label for="">Email</label>
+				    <input id="" name="" type="text" />
+				  </div>
+				  
+				  <div class="txt-fld">
+				    <label for="">密码</label>
+				    <input id="" name="" type="text" />
+				  </div>
+				  
+				  <div class="btn-fld">
+				  <button type="submit">注册 &raquo;</button>
+				  </div>
+				  
+			    </form>
+		</div>
+</div>
 
 </body>
 </html>
