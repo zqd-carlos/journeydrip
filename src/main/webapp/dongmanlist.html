@@ -167,7 +167,8 @@
                                   })*/
                                 for (var i=0;i<data.length;i++){
                                     //拼接表格的行和列
-                                    str ='<div><li class="web"><a rel="leanModal"  href="#{}" class="inline-border2"><img src="images/dongman/'+data[i].imgurl+'" alt=""/>'+data[i].dmname+'</a></li></div>';
+                                    str ='<li class="web"><a rel="leanModal"  href="#" class="inline-border2">' +
+										'<img src="images/dongman/'+data[i].imgurl+'" alt=""/>'+data[i].dmname+'</a></li>';
                                     //追加到table中
 
                                     $("#showdiv").append(str);
@@ -291,7 +292,7 @@
 
 				<div class="txt-fld">
 					<label for="">用户名</label>
-					<input id="" class="good_input" name="" type="text" />
+					<input id="sad" class="good_input" name="" type="text" />
 
 				</div>
 				<div class="txt-fld">
