@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:context="http://www.springframework.org/schema/context"
+       xmlns:aop="http://www.springframework.org/schema/aop"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context.xsd http://www.springframework.org/schema/aop http://www.springframework.org/schema/aop/spring-aop.xsd">
+
+
+    <!--&lt;!&ndash;开启spring aop的开关&ndash;&gt;-->
+   <!--<aop:aspectj-autoproxy></aop:aspectj-autoproxy>-->
+
+    <!--&lt;!&ndash; 创建bean对象，交由spring ioc进行管理 &ndash;&gt;-->
+    <!--<bean id="pagelist" class="cn.journeydrip.aop.ListAspect" />-->
+
+    <!--&lt;!&ndash;开启spring的包扫描&ndash;&gt;-->
+    <!--<context:component-scan base-package="cn.journeydrip.aop" />-->
+
+
+
+</beans>

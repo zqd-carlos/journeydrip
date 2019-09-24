@@ -81,11 +81,11 @@
 	<!--	</mvc:interceptor>				-->
 	<!--	</mvc:interceptors>				-->
 
-	<!-- 配置视图解析器
-<bean>
-    <property name="prefix" value="/WEB-INF/jsp/"></property>
-    <property name="suffix" value=".jsp"></property>
-</bean>			-->
+	<!-- 配置视图解析器-->
+<!--<bean class="org.springframework.web.servlet.view.InternalResourceViewResolver">-->
+    <!--<property name="prefix" value="/WEB-INF/jsp/"></property>-->
+    <!--<property name="suffix" value=".jsp"></property>-->
+<!--</bean>			-->
 
 
 
