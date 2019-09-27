@@ -21,6 +21,9 @@
         });
 	</script>
 
+
+
+
 </head>
 
 <body class="portfolio">
@@ -129,7 +132,7 @@
 							<ul id="destination">
 
 							<!--循环16次-->
-					 		<div id="showdiv">
+					 		<div id="showdiv" >
 
 							</div>
 							</ul>
@@ -165,14 +168,16 @@
                                 var str="";//定义用于拼接的字符串
                                 /*  $.each(data,function (index,value) {
                                   })*/
-                                for (var i=0;i<data.length;i++){
+                                for (var i=0;i<data.length;i++) {
                                     //拼接表格的行和列
-                                    str ='<li class="web"><a rel="leanModal"  href="#" class="inline-border2">' +
-										'<img src="images/dongman/'+data[i].imgurl+'" alt=""/>'+data[i].dmname+'</a></li>';
+                                    str = '<li class="web"><a rel="leanModal"  href="#signup" class="inline-border2">' +
+                                        '<img src="images/dongman/' + data[i].imgurl + '" alt=""/>' + data[i].dmname + '</a></li>';
                                     //追加到table中
 
+
                                     $("#showdiv").append(str);
-                                }
+
+                               		 }
  								},
  							error:function fail(){
  								alert("加载失败，请刷新重试");
@@ -193,7 +198,7 @@
                     data:{"page":1},
                     dataType:"json",
                     success:function suc(data){
-                        var chara=$("#chara").val();
+                        // var chara=$("#chara").val();
                         $("#showdiv").empty();
                         var str="";//定义用于拼接的字符串
                         /*  $.each(data,function (index,value) {
@@ -275,12 +280,8 @@
 	</div>
 
 
-	<p id="examples">
-		<strong>例子:</strong>
-		<a rel="leanModal" href="#signup">带关闭</a>
-	</p>
 
-	<div id="signup">
+	<div id="signup" style="display: none;position: fixed;top: 0;left: 0;right: 0;bottom: 0;margin: auto">
 		<div id="signup-ct">
 			<div id="signup-header">
 				<h2>创建一个新账号</h2>
@@ -313,3 +314,15 @@
 
 </body>
 </html>
+<script>
+
+    $('#showdiv').click(function(){
+        $('#signup').show()
+    })
+
+    $('.modal_close').click(function(){
+        $('#signup').hide()
+    })
+
+
+</script>

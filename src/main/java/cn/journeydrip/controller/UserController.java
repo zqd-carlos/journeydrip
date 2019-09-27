@@ -13,8 +13,9 @@ import org.apache.shiro.SecurityUtils;
 import org.apache.shiro.authc.UnknownAccountException;
 import org.apache.shiro.authc.UsernamePasswordToken;
 import org.apache.shiro.subject.Subject;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.http.HttpRequest;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -26,8 +27,10 @@ import org.springframework.web.bind.annotation.ResponseBody;
 
 @Controller
 public class UserController {
-	
+
+	private Logger logger = LoggerFactory.getLogger(UserController.class);
 	//调用一个UserService，创建一个对象
+
 	@Autowired
 	private UserService userservice;
 
@@ -35,6 +38,7 @@ public class UserController {
 	//显示登录的方法，随机产生登录页面
 	@RequestMapping("/slogin")
 	public String showlogin() {
+		logger.info("这里是显示登录界面的方法");
 		int i=(int) Math.floor(Math.random()*4+1);
 		switch (i) {
 		case 1:
@@ -54,6 +58,8 @@ public class UserController {
 	 */
 	@RequestMapping("/sindex")
 	public String showindex() {
+
+		logger.info("这里是显示主页的方法");
 		return "/WEB-INF/page/index.jsp";
 	}
 
@@ -65,7 +71,7 @@ public class UserController {
 	 */
 	@RequestMapping("/sanalyze")
 	public String visited(Model model) {
-		//模拟从数据库中获取用户列表数据
+		//从数据库中获取用户列表数据
 		List<visted> vistedList=userservice.selectAllvisited();
 		model.addAttribute("vistedList",vistedList);
 		return "/WEB-INF/page/analyze.jsp";
@@ -121,6 +127,8 @@ public class UserController {
 	 */
 	@RequestMapping("/login")
 	public String login(String username, String password, Model model, HttpSession session) throws IOException {
+
+		logger.info("这里发送login请求的方法");
 		//controller中的登录方法，调用service中的登录
 		//传入一个用户名和密码，
 		//System.out.println("传入的用户名："+username+"  密码"+password);
@@ -144,6 +152,7 @@ public class UserController {
 
 		if(username==null){
 			System.out.println("用户名不能为空");
+
 			return "/slogin";
 		}
 		//主体,当前状态为没有认证的状态“未认证”
@@ -156,13 +165,17 @@ public class UserController {
 		try {
 			//利用异常操作
 			//需要开始调用到Realm中
+			logger.info("这里是用户登录请求的login请求");
 			System.out.println("========================================");
 			System.out.println("1、进入认证方法，这里是controller层");
 			subject.login(token);
 			user = (User)subject.getPrincipal();
 			session.setAttribute("user",subject);
 			System.out.println("登录成功");
+			logger.info("这里是用户登录请求的login请求。到这里已经登录成功了，将返回sindex");
 		} catch (Exception e) {
+
+			logger.info("这里是longin登录请求的方法，登录失败，返回slogin");
 			System.out.println("这里是controller中的catch方法，表示登录账号或者密码错误");
 			return "redirect:/slogin";
 		}
