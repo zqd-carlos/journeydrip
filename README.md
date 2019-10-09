@@ -8,98 +8,6 @@ journeydrip
 #### 组成
 ##### 主要框架
 
-#### 基本结构
-
-├─src
-│  └─main
-│      │  main.iml
-│      │  
-│      ├─java
-│      │  └─cn
-│      │      └─journeydrip
-│      │          ├─aop
-│      │          │      ListAspect.java		//AOP的切面编程，将同样的显示列表的showlist()方法切出来。
-│      │          │      
-│      │          ├─controller
-│      │          │      DongmanController.java		//动漫列表的控制层，用来出来动漫类的请求
-│      │          │      GameController.java		
-│      │          │      NovelController.java		
-│      │          │      UserController.java		//用户的控制层，用来处理用户的请求和方法者的请求，获取当前用户的主题，然后转到realm中去登录和授权，由shiro完成密码的比对，和用户的授权
-│      │          │      
-│      │          ├─dao		
-│      │          │      DongmanMapper.java		//动漫列表的控制层，用来处理动漫类的请求	
-│      │          │      GameMapper.java		  
-│      │          │      NovelMapper.java			
-│      │          │      UserMapper.java		//用户的控制层，用来处理用户的请求和方法者的请求。比如查询用户名，角色权限等
-│      │          │      
-│      │          ├─entity				//比较传统的RBAC(基于角色控制的访问控制)	
-│      │          │      dongman.java			//实体类，动漫，游戏，小说，权限，用户，角色，访问者，页码
-│      │          │      Game.java
-│      │          │      Listpage.java
-│      │          │      Novel.java
-│      │          │      Permission.java
-│      │          │      Role.java
-│      │          │      User.java
-│      │          │      visted.java
-│      │          │      							
-│      │          ├─filter	//过滤器类，用来过滤字符串的编码和拦用户非法进入，后使用shiro的过滤器，这里就不在web中配置，已取消使用并做保留
-│      │          │      Filter.java
-│      │          │      PageFilter.java			
-│      │          │      
-│      │          ├─interceptor
-│      │          │      Interceptor.java		//  拦截器，基于spring，由于shiro框架做了拦，这里暂不使用，做保留         
-│      │          │      
-│      │          ├─listener
-│      │          │      SessionCounter.java		//监听器，监听网站的在线人数
-│      │          │      
-│      │          ├─mail
-│      │          │      SEmail.java			//邮件类，使用smtp和pop3接口，实现用户使用邮件方式来发送邮件给我们
-│      │          │      
-│      │          ├─realm
-│      │          │      UserRealm.java			//realm，shiro框架中用来实现用户登录和用户授权的方法，由shiro完成用户密码的比对和授权，接收controller传过来的用户名参数
-│      │          │      
-│      │          └─service
-│      │              │  DongmanService.java		//服务层，基本业务层
-│      │              │  GameService.java
-│      │              │  NovelService.java
-│      │              │  UserService.java
-│      │              │  
-│      │              └─imp
-│      │                      DongmanServiceImp.java	//服务层的实现类，注入dao层
-│      │                      GameServiceImp.java
-│      │                      NovelServiceImp.java
-│      │                      UserServiceImp.java
-│      ├─resources
-│      │  │  db.properties				//数据库的驱动等信息
-│      │  │  ehcache.xml				//ehcache缓存
-│      │  │  log4j.properties				//log4j日志
-│      │  │  mybatis-config.xml				//mybatis的配置文件，里面为mybatis的事务管理配置
-│      │  │  
-│      │  ├─mappers				//dao层的映射类，mybatis框架对其xml的配置，里面用来完成sql语句的代码，对数据库的业务逻辑
-│      │  │      DongmanMapper.xml
-│      │  │      GameMapper.xml
-│      │  │      NovelMapper.xml
-│      │  │      UserMapper.xml
-│      │  │      
-│      │  ├─springconfig				//spring的配置文件
-│      │  │      spring-dao.xml				//整合spring 和mybatis，配置数据库连池为durid，配置sqlsessionfactory
-│      │  │      spring-mvc.xml				//整合spring和springmvc 配置前端控制器dispatcherservlet（三个核心，控制器适配器，控制器处理器，视图解析器）
-│      │  │      spring-service.xml			//spring配置的一些对象和扫描		
-│      │  │      spring-shiro.xml			//整合spring和shiro，配置安全管理器SecurityManager(shiro框架的核心)和shiro的控制器，及remberme，cache等信息
-│      │  │      
-│      │  └─sql
-│      │          dongman.sql				//sql语句
-│      │          game.sql
-│      │          novel.sql
-│      │          permission.sql
-│      │          role.sql
-│      │          user.sql
-│      │          user_role.sql
-│      │          visited.sql
-│      └─webapp						//前端文件配置
-│
-
-
 #### 组成
 ##### 主要框架
 * **Spring框架**: Spring框架是由于软件开发的复杂性而创建的。Spring使用的是基本的JavaBean来完成以前只可能由EJB完成的事情。然而，Spring的用途不仅仅限于服务器端的开发。从简单性、可测试性和松耦合性角度而言，绝大部分Java应用都可以从Spring中受益。
@@ -111,6 +19,10 @@ journeydrip
 
 ### 运行效果
 www.journeydrip.cn
+
+暂不开放注册功能，只提供2个测试账号 
+管理员账号：root 密码: 123456
+普通用户账号: admin 密码 :admin
 
 #### 开发工具
 ##### IDE
@@ -133,23 +45,8 @@ www.journeydrip.cn
 建议使用IDEA，eclipse也没问题
 
 ### 页面登录
-*本项目使用了视频作为背景。分为了春夏秋冬四个页面，并开始做一个随机生成，随机其中的一个登陆页
+*本项目使用了视频作为背景。分为了春夏秋冬四个页面，并开始做一个随机生成，随机其中的一个登陆页。
 
-	//显示登录的方法，随机产生登录页面
-	@RequestMapping("/slogin")
-	public String showlogin() {
-		int i=(int) Math.floor(Math.random()*4+1);
-		switch (i) {
-		case 1:
-			return "loginspring.html";
-		case 2:
-			return "loginsummer.html";
-		case 3:
-			return "loginautumn.html";
-		default:
-			return "loginwinter.html";
-		}
-	}
 
 ##### 文件配置
 ####基本文件配置
