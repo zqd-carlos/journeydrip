@@ -51,7 +51,7 @@
     <url-pattern>/showdongmanlist</url-pattern>
     <url-pattern>/showgamelist</url-pattern>
     <url-pattern>/shownovellist</url-pattern>
-    <url-pattern>/nopermission</url-pattern>
+    <url-pattern>/nopermission</url-pattern>s
     <url-pattern>*.form</url-pattern>
   </servlet-mapping>
   <listener>

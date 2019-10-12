@@ -33,6 +33,7 @@
                 /loginsummer.html = anon
                 /loginautumn.html = anon
                 /loginwinter.html = anon
+                /registerfail.html= anon
                 /error.html       = anon
                 <!-- perms 表示需要该权限才能访问的页面 -->
                 /sanalyze = authc, perms[/sanalyze]

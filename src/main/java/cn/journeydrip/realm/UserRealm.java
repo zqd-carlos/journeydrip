@@ -3,13 +3,12 @@ package cn.journeydrip.realm;
 import cn.journeydrip.entity.Permission;
 import cn.journeydrip.entity.User;
 import cn.journeydrip.service.UserService;
+//import org.apache.log4j.Logger;
 import org.apache.shiro.authc.*;
 import org.apache.shiro.authz.AuthorizationInfo;
 import org.apache.shiro.authz.SimpleAuthorizationInfo;
 import org.apache.shiro.realm.AuthorizingRealm;
 import org.apache.shiro.subject.PrincipalCollection;
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 
 import java.util.HashSet;
@@ -18,7 +17,7 @@ import java.util.Set;
 
 public class UserRealm extends AuthorizingRealm {
 
-    private Logger logger = LoggerFactory.getLogger(UserRealm.class);
+    //  private static Logger logger = Logger.getLogger(UserRealm.class);
 
     @Autowired
     private UserService userService;
@@ -42,7 +41,7 @@ public class UserRealm extends AuthorizingRealm {
         //三个参数进行初步的简单认证信息对象的包装
         AuthenticationInfo info = new SimpleAuthenticationInfo(user, user.getPassword(), this.getClass().getSimpleName());
 
-        logger.info("这里Realm中的的认证方法，认证成功");
+      //  logger.info("这里Realm中的的认证方法，认证成功");
         return info;
   /* return null;*/
     }
@@ -62,7 +61,7 @@ public class UserRealm extends AuthorizingRealm {
                 for (Permission p: permissionsByUser) {
 
                     info.addStringPermission(p.getUrl());
-                    logger.info("这里是Realm授权界面的方法，授权成功");
+                    //     logger.info("这里是Realm授权界面的方法，授权成功");
                 }
                 return info;
             }
